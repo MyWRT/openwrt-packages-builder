@@ -193,5 +193,13 @@
                 "dir": "mosdns"
             }
         ]
+    },
+    {
+        "URL": "https://github.com/chenmozhijin/turboacc.git",
+        "subdir": [
+            {
+                "dir": "luci-app-turboacc"
+            }
+        ]
     }
 ]
