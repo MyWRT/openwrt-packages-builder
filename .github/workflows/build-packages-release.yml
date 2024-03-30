@@ -54,7 +54,7 @@ jobs:
           find . -name "Makefile" -type f -exec cat {} \;
 
       - name: Build
-        uses: openwrt/gh-action-sdk@main
+        uses: MyWRT/gh-action-sdk@main
         env:
           ARCH: ${{ matrix.arch }}
           KEY_BUILD: ${{ secrets.KEY_BUILD }}
