@@ -87,9 +87,6 @@
                 "dir": "luci-app-mosdns"
             },
             {
-                "dir": "mosdns"
-            },
-            {
                 "dir": "v2dat"
             }
         ]
@@ -164,6 +161,9 @@
             },
             {
                 "dir": "xray-plugin"
+            },
+            {
+                "dir": "mosdns"
             }
         ]
     }
