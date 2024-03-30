@@ -5,7 +5,8 @@ on:
       tag:
         description: "The tag version you want to build"
   push:
-    branches: main
+    branches: 
+      - main
     paths:
       - '.github/workflows/sync.yml'
       - 'config.json'
@@ -36,5 +37,5 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "Sync $(TZ='Asia/Shanghai' date +@%Y%m%d-%H%M%S)"
+          git commit -m "Sync $(TZ='Europe/London' date +@%Y%m%d-%H%M%S)"
           git push --quiet "https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/$GITHUB_REPOSITORY" HEAD:main

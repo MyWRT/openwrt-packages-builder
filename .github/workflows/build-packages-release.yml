@@ -1,7 +1,8 @@
-name: Openwrt Packages Build Bot
+name: OpenWRT Packages Build Bot
 on:
   push:
-    branches: main
+    branches: 
+      - main
     paths:
       - '.github/workflows/build-packages-release.yml'
       - 'patch.sh'
@@ -12,30 +13,32 @@ on:
       - '!packages/**/.gitignore'
       - '!packages/**/LICENSE'
       - '!packages/**/LICENSES'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
 
 jobs:
   buildpkg:
-    name: Build Openwrt Package
+    name: Build OpenWRT Packages
     runs-on: ubuntu-latest
     strategy:
       matrix:
         arch:
-          - x86_64-v23.05.2
-          - aarch64_cortex-a53-v23.05.2
-          - x86_64-v22.03.5
-          - x86_64-v21.02.7
-          - x86_64-SNAPSHOT
-          - aarch64_generic-v23.05.2
-          - aarch64_generic-v22.03.5
-          - aarch64_generic-v21.02.7
-          - aarch64_generic-SNAPSHOT
-          - mipsel_24kc-v23.05.2
-          - mipsel_24kc-v22.03.5
+          - x86_64-23.05.3
+          - aarch64_generic-23.05.3
 
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      
+      - name: Cache artifacts
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}
+          key: ${{ matrix.arch }}
           
       - name: Prepare feeds
         run: |
@@ -51,27 +54,40 @@ jobs:
           find . -name "Makefile" -type f -exec cat {} \;
 
       - name: Build
-        uses: ekkog/gh-action-sdk@master
+        uses: openwrt/gh-action-sdk@main
         env:
           ARCH: ${{ matrix.arch }}
           KEY_BUILD: ${{ secrets.KEY_BUILD }}
-          INDEX: 1
-          IGNORE_ERRORS: 1
-          NO_SHFMT_CHECK: 1
-          V: 99
+          INDEX: "1"
+          IGNORE_ERRORS: n m y
+          BUILD_LOG: "1"
+          NO_SHFMT_CHECK: "1"
           PACKAGES: ${{ env.PACKAGES }}
+          FEED_DIR: "${{ github.workspace }}"
+          ARTIFACTS_DIR: "${{ github.workspace }}"
 
 
       - name: List files
         run: |
           ls -R bin/
 
-      - name: Upload feed
-        uses: Pendect/action-rsyncer@8e05ffa5c93e5d9c9b167796b26044d2c616b2b9
+      # - name: Upload feed
+      #   uses: Pendect/action-rsyncer@8e05ffa5c93e5d9c9b167796b26044d2c616b2b9
+      #   with:
+      #     flags: '-ahvHP'
+      #     options: '--delete'
+      #     src: 'bin/packages/*/action/'
+      #     dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-openwrt-dist/packages/${{ matrix.arch }}/'
+      #   env:
+      #     DEPLOY_KEY: ${{ secrets.SF_KEY }}
+
+      - name: Upload feed to Google Drive
+        uses: andreiio/rclone-action@v1
         with:
-          flags: '-ahvHP'
-          options: '--delete'
-          src: 'bin/packages/*/action/'
-          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-openwrt-dist/packages/${{ matrix.arch }}/'
+          args: copy "bin/packages/*/action/" "gd:MyWRTBuilder/packages/${{ matrix.arch }}/"
         env:
-          DEPLOY_KEY: ${{ secrets.SF_KEY }}
+          RCLONE_CONFIG_GD_TYPE: drive
+          RCLONE_CONFIG_GD_SCOPE: drive
+          RCLONE_CONFIG_GD_CLIENT_ID: ${{ secrets.DRIVE_CLIENT_ID }}
+          RCLONE_CONFIG_GD_CLIENT_SECRET: ${{ secrets.DRIVE_CLIENT_SECRET }}
+          RCLONE_CONFIG_GD_TOKEN: ${{ secrets.DRIVE_TOKEN }}

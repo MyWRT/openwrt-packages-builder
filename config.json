@@ -1,17 +1,18 @@
 [
     {
-        "URL": "https://github.com/immortalwrt/packages.git",
+        "URL": "https://github.com/immortalwrt/luci.git",
+        "branch": "openwrt-23.05",
         "subdir": [
             {
-                "dir": "net/mosdns"
+                "dir": "applications/luci-app-gost"
             },
             {
-                "dir": "net/v2ray-geodata"
+                "dir": "applications/luci-app-homeproxy"
+            },
+            {
+                "dir": "applications/luci-app-filebrowser"
             }
         ]
-    },
-    {
-        "URL": "https://github.com/EkkoG/sdm.git"
     },
     {
         "URL": "https://github.com/openwrt/packages.git",
@@ -22,11 +23,147 @@
         ]
     },
     {
-        "URL": "https://github.com/EkkoG/openwrt-natmap.git",
+        "URL": "https://github.com/kiddin9/luci-app-dnsfilter.git"
+    },
+    {
+        "URL": "https://github.com/tty228/luci-app-wechatpush.git",
+        "branch": "master"
+    },
+    {
+        "URL": "https://github.com/jerrykuku/luci-theme-argon.git"
+    },
+    {
+        "URL": "https://github.com/jerrykuku/luci-app-argon-config.git"
+    },
+    {
+        "URL": "https://github.com/kenzok78/luci-app-adguardhome.git"
+    },
+    {
+        "URL": "https://github.com/papagaye744/luci-theme-design.git",
+        "branch": "js"
+    },
+    {
+        "URL": "https://github.com/gngpp/luci-app-design-config.git"
+    },
+    {
+        "URL": "https://github.com/pymumu/luci-app-smartdns.git",
+        "branch": "master"
+    },
+    {
+        "URL": "https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git",
+        "branch": "js"
+    },
+    {
+        "URL": "https://github.com/lisaac/luci-app-dockerman.git",
         "subdir": [
             {
-                "dir": ".",
-                "rename_to": "natmap"
+                "dir": "applications/luci-app-dockerman"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/vernesong/OpenClash.git",
+        "subdir": [
+            {
+                "dir": "luci-app-openclash"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/sirpdboy/luci-app-ddns-go.git",
+        "subdir": [
+            {
+                "dir": "ddns-go"
+            },
+            {
+                "dir": "luci-app-ddns-go"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/sbwml/luci-app-mosdns.git",
+        "subdir": [
+            {
+                "dir": "luci-app-mosdns"
+            },
+            {
+                "dir": "mosdns"
+            },
+            {
+                "dir": "v2dat"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/sbwml/luci-app-alist.git",
+        "subdir": [
+            {
+                "dir": "luci-app-alist"
+            },
+            {
+                "dir": "alist"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/immortalwrt/homeproxy.git"
+    },
+    {
+        "URL": "https://github.com/muink/luci-app-natmapt.git"
+    },
+    {
+        "URL": "https://github.com/muink/openwrt-natmapt.git"
+    },
+    {
+        "URL": "https://github.com/muink/openwrt-stuntman.git"
+    },
+    {
+        "URL": "https://github.com/kenzok8/wall.git",
+        "subdir": [
+            {
+                "dir": "UnblockNeteaseMusic"
+            },
+            {
+                "dir": "dns2socks"
+            },
+            {
+                "dir": "dns2tcp"
+            },
+            {
+                "dir": "adguardhome"
+            },
+            {
+                "dir": "filebrowser"
+            },
+            {
+                "dir": "gost"
+            },
+            {
+                "dir": "hysteria"
+            },
+            {
+                "dir": "pdnsd-alt"
+            },
+            {
+                "dir": "shadowsocks-rust"
+            },
+            {
+                "dir": "shadowsocksr-libev"
+            },
+            {
+                "dir": "simple-obfs"
+            },
+            {
+                "dir": "sing-box"
+            },
+            {
+                "dir": "tcping"
+            },
+            {
+                "dir": "xray-core"
+            },
+            {
+                "dir": "xray-plugin"
             }
         ]
     }
