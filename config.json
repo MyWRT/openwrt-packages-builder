@@ -50,6 +50,15 @@
         "branch": "master"
     },
     {
+        "URL": "https://github.com/pymumu/openwrt-smartdns.git",
+        "subdir": [
+            {
+                "dir": ".",
+                "rename_to": "smartdns"
+            }
+        ]
+    },
+    {
         "URL": "https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git",
         "branch": "js"
     },
@@ -109,10 +118,22 @@
         "URL": "https://github.com/muink/luci-app-natmapt.git"
     },
     {
-        "URL": "https://github.com/muink/openwrt-natmapt.git"
+        "URL": "https://github.com/muink/openwrt-natmapt.git",
+        "subdir": [
+            {
+                "dir": ".",
+                "rename_to": "natmapt"
+            }
+        ]
     },
     {
-        "URL": "https://github.com/muink/openwrt-stuntman.git"
+        "URL": "https://github.com/muink/openwrt-stuntman.git",
+        "subdir": [
+            {
+                "dir": ".",
+                "rename_to": "stuntman"
+            }
+        ]
     },
     {
         "URL": "https://github.com/kenzok8/wall.git",
@@ -164,14 +185,45 @@
             },
             {
                 "dir": "mosdns"
+            },
+            {
+                "dir": "chinadns-ng"
             }
         ]
     },
     {
         "URL": "https://github.com/chenmozhijin/turboacc.git",
+        "branch": "luci",
         "subdir": [
             {
                 "dir": "luci-app-turboacc"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/chenmozhijin/turboacc.git",
+        "branch": "package",
+        "subdir": [
+            {
+                "dir": "firewall4-698a53354fd280aae097efe08803c0c9a10c14c2/firewall4"
+            },
+            {
+                "dir": "libnftnl-1.2.6/libnftnl"
+            },
+            {
+                "dir": "nftables-1.0.9/nftables"
+            },
+            {
+                "dir": "nft-fullcone"
+            },
+            {
+                "dir": "shortcut-fe/fast-classifier"
+            },
+            {
+                "dir": "shortcut-fe/shortcut-fe"
+            },
+            {
+                "dir": "shortcut-fe/simulated-driver"
             }
         ]
     }

@@ -37,8 +37,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            ${{ github.workspace }}
-          key: ${{ matrix.arch }}
+            ${{ github.workspace }}/build_dir
+          key: ${{ matrix.arch }}-build_dir
           
       - name: Prepare feeds
         run: |
@@ -63,8 +63,9 @@ jobs:
           BUILD_LOG: "1"
           NO_SHFMT_CHECK: "1"
           PACKAGES: ${{ env.PACKAGES }}
-          FEED_DIR: "${{ github.workspace }}"
-          ARTIFACTS_DIR: "${{ github.workspace }}"
+          FEEDNAME: "mywrt"
+          ARTIFACTS_DIR: "${{ github.workspace }}/artifacts"
+          BUILD_DIR: "${{ github.workspace }}/build_dir"
 
 
       - name: List files
@@ -84,7 +85,7 @@ jobs:
       - name: Upload feed to Google Drive
         uses: andreiio/rclone-action@v1
         with:
-          args: copy "bin/packages" "gd:MyWRTBuilder/packages"
+          args: copy "artifacts/bin/packages" "gd:MyWRTBuilder/packages"
         env:
           RCLONE_CONFIG_GD_TYPE: drive
           RCLONE_CONFIG_GD_SCOPE: drive
