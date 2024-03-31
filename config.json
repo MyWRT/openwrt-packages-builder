@@ -10,9 +10,6 @@
                 "dir": "applications/luci-app-homeproxy"
             },
             {
-                "dir": "applications/luci-app-filebrowser"
-            },
-            {
                 "dir": "applications/luci-app-usb-printer"
             },
             {
@@ -78,10 +75,6 @@
     {
         "URL": "https://github.com/pymumu/luci-app-smartdns.git",
         "branch": "master"
-    },
-    {
-        "URL": "https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git",
-        "branch": "js"
     },
     {
         "URL": "https://github.com/lisaac/luci-app-dockerman.git",
@@ -155,9 +148,6 @@
             },
             {
                 "dir": "adguardhome"
-            },
-            {
-                "dir": "filebrowser"
             },
             {
                 "dir": "gost"
