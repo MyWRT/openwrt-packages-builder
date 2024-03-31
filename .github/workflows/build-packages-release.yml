@@ -84,7 +84,7 @@ jobs:
       - name: Upload feed to Google Drive
         uses: andreiio/rclone-action@v1
         with:
-          args: copy "bin/packages/*/action/" "gd:MyWRTBuilder/packages/${{ matrix.arch }}/"
+          args: copy "bin/packages" "gd:MyWRTBuilder/packages"
         env:
           RCLONE_CONFIG_GD_TYPE: drive
           RCLONE_CONFIG_GD_SCOPE: drive
