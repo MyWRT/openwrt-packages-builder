@@ -11,6 +11,12 @@
             },
             {
                 "dir": "applications/luci-app-filebrowser"
+            },
+            {
+                "dir": "applications/luci-app-usb-printer"
+            },
+            {
+                "dir": "applications/luci-app-zerotier"
             }
         ]
     },
@@ -184,6 +190,12 @@
                 "dir": "xray-plugin"
             },
             {
+                "dir": "v2ray-core"
+            },
+            {
+                "dir": "v2ray-plugin"
+            },
+            {
                 "dir": "mosdns"
             },
             {
@@ -224,6 +236,17 @@
             },
             {
                 "dir": "shortcut-fe/simulated-driver"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/muink/luci-app-netdata.git"
+    },
+    {
+        "URL": "https://github.com/xiaorouji/openwrt-passwall2.git",
+        "subdir": [
+            {
+                "dir": "luci-app-passwall2"
             }
         ]
     }
