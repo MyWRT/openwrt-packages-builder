@@ -21,6 +21,21 @@
         ]
     },
     {
+        "URL": "https://github.com/immortalwrt/immortalwrt.git",
+        "branch": "openwrt-23.05",
+        "subdir": [
+            {
+                "dir": "package/network/config/firewall4"
+            },
+            {
+                "dir": "package/libs/libnftnl"
+            },
+            {
+                "dir": "package/network/utils/nftables"
+            }
+        ]
+    },
+    {
         "URL": "https://github.com/openwrt/packages.git",
         "subdir": [
             {
@@ -216,15 +231,6 @@
         "URL": "https://github.com/chenmozhijin/turboacc.git",
         "branch": "package",
         "subdir": [
-            {
-                "dir": "firewall4-698a53354fd280aae097efe08803c0c9a10c14c2/firewall4"
-            },
-            {
-                "dir": "libnftnl-1.2.6/libnftnl"
-            },
-            {
-                "dir": "nftables-1.0.9/nftables"
-            },
             {
                 "dir": "nft-fullcone"
             },
